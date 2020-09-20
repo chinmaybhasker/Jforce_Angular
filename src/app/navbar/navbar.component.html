@@ -1,0 +1,83 @@
+<div>
+  <!--    <div class=container class="bg-dark">
+        <div class="row" style="color: aliceblue;">
+            <div class="offset-sm-2 col-sm-3" > 
+                chinmay Bhasker
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class=container class="bg-danger" style="border-bottom: 2px brown solid;">
+        <div class="row" style="color: aliceblue;">
+            <div class="offset-sm-2 col-sm-6 "  style="height: 150px;padding-top: 50px;"> 
+              <h2> <i>Shake Your Conscience!</i></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class ="offset-sm-2 col-sm-8 " >
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <ul class="navbar-nav">
+            
+            <li class="nav-item ">
+                <a class="nav-link" href="/home">Home </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/PostArticle">PostArticle</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+           
+            
+        </ul> 
+        </div>     
+    </div>
+</nav>-->
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Bhasker's Hotel</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <div  *ngIf="loginFlag">
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="login">Login </a>
+            </li>
+          </div>
+          <div  *ngIf="!loginFlag">
+            <li class="nav-item ">
+              <a class="nav-link" (click)="logout()">Logout </a>
+            </li>
+          </div>
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="SignUp">SignUp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="roombook">Book Room</a>
+          </li>
+          <div *ngIf="adminFlag">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="admin">Admin Rights</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>

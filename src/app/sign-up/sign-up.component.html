@@ -1,0 +1,86 @@
+<div style ="text-align: left;">
+  <div class = "loginMessage">
+  <div *ngIf=flag>
+    <div class="alert alert-success signUpMessage" style="text-align: center;">
+      {{message}}
+    </div>
+  </div>
+  </div>
+  <form class="form-signin" [formGroup]="signUpForm"  (ngSubmit)="onSubmit()">
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;">Please SignUp </h1>
+
+
+    <div class="form-group"  style="display: flex;">
+      <label for="firstName" class="sr-only">First Name</label>
+      <input type="text" id="firstName" class="form-control" formControlName="firstName" placeholder="First Name"
+        required autofocus>
+      <div *ngIf="signUpForm.controls.firstName.invalid && (signUpForm.controls.firstName.dirty || signUpForm.controls.firstName.touched)" class="alert alert-danger">
+      <div *ngIf="signUpForm.controls.firstName.errors.required">
+        Name is required field
+      </div>
+      <div *ngIf="signUpForm.controls.firstName.errors.minlength">
+        Name must be at least 5 character long
+      </div>
+      <div *ngIf="signUpForm.controls.firstName.errors.maxlength">
+        Name can have at max 15 character long
+      </div>
+    </div>
+</div>
+
+
+
+<div class="form-group" style="display: flex;">
+  <label for="lastName" class="sr-only">Last Name</label>
+  <input type="text" id="lastName" class="form-control" formControlName="lastName" placeholder="Last Name" required
+    autofocus>
+    <div *ngIf="signUpForm.controls.lastName.invalid && (signUpForm.controls.lastName.dirty || signUpForm.controls.lastName.touched)" class="alert alert-danger">
+      <div *ngIf="signUpForm.controls.lastName.errors.required">
+        LastName is required field
+      </div>
+      <div *ngIf="signUpForm.controls.lastName.errors.minlength">
+        LastName must be at least 5 character long
+      </div>
+    </div>
+</div>
+
+
+
+<div class="form-group" style="display: flex;">
+  <label for="emailaddress" class="sr-only">Email address</label>
+  <input type="text" id="emailaddress" class="form-control" formControlName="emailaddress" placeholder="Email address"
+    required autofocus>
+    <div *ngIf="signUpForm.controls.emailaddress.invalid && (signUpForm.controls.emailaddress.dirty || signUpForm.controls.emailaddress.touched)" class="alert alert-danger">
+      <div *ngIf="signUpForm.controls.emailaddress.errors.required">
+        Email is required field
+      </div>
+      <div *ngIf="signUpForm.controls.emailaddress.errors.email">
+        feild must be in email format
+      </div>
+    </div>
+</div>
+
+
+
+
+<div class="form-group" style="display: flex;">
+  <label for="password" class="sr-only">Password</label>
+  <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password" required>
+  <div *ngIf="signUpForm.controls.password.invalid && (signUpForm.controls.password.dirty || signUpForm.controls.password.touched)" class="alert alert-danger">
+    <div *ngIf="signUpForm.controls.password.errors.required">
+      Password is required field
+    </div>
+    <div *ngIf="signUpForm.controls.password.errors.minlength">
+      Password must be at least 5 character long
+    </div>
+  </div>
+</div>
+
+
+
+
+<button class="btn btn-lg btn-primary btn-block form-control" [disabled]="signUpForm.invalid" type="submit"
+  style="margin-top: 10px; background-color: lightblue;    width: 15%;margin-left: 42%;">SignUp</button>
+
+
+</form>
+</div>

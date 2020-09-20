@@ -1,0 +1,49 @@
+<!-- <div class="input-group" ><span class="inline">
+    <input type="date" id="birthday" name="birthday"><h1>to </h1>
+    <input type="date" id="birthday" name="birthday">
+</span>
+</div> -->
+
+<div class="input-group">
+    <h1> Please Select Rooms form </h1> 
+    <input type="date"  value="From Date"  [(ngModel)]="fromDate">
+    <span class="input-group-btn"></span>
+    <h1>to </h1>
+    <input type="date"  value="To Date"    [(ngModel)]="toDate" >
+    <button class="btn btn-primary" (click)="Submit()">Submit</button>
+    <div *ngIf= "isChecked" style="color: blue;">
+      <h2>{{errormsg}}</h2>
+    </div>
+    <div  id="loginFlag123">
+      <div *ngIf= "loginFlag" style="color: blue;" >
+        <h2>{{errormsg}}</h2>
+      </div>
+    </div>
+</div>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Floor Number</th>
+        <th scope="col">Room Number</th>
+        <th scope="col">Booking Status</th>
+        <th scope="col">Select</th>
+      </tr>
+    </thead>
+    
+    <tbody>      
+      <tr   *ngFor="let rooms of RoomsList;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{rooms.getfloorNumber()}}</td>
+        <td>{{rooms.getroomNumber()}}</td>
+        <td>{{rooms.getbookingStatus()}}</td>
+        <td><input #value1 value="{{rooms.getroomNumber()}}" type="checkbox" [disabled]="isChecked || rooms.getbookingFlag()"
+            class="form-check-input" id="exampleCheck1"  (change)="checkCheckBoxvalue(value1.value,$event)"></td>
+      </tr>
+    </tbody>
+    <div *ngIf= "!isChecked">
+    <button class="btn btn-primary" (click)="SendResponse()" >Submit Response</button>
+    </div>
+  </table>
+ 
